@@ -18,12 +18,11 @@ func CheckFatalErr(err error, msg string) {
 }
 
 // Send a 400 - BadRequest error back to client
-func Send400(w http.ResponseWriter, err error) {
+func Send400Json(w http.ResponseWriter, msg string) {
   w.WriteHeader(http.StatusBadRequest)
   fmt.Fprintf(os.Stderr, "Bad request: %s\n", err)
-  debug.PrintStack()
   w.Header().Set("Content-Type", "application/json")
-  fmt.Fprintf(w, "{\"error\": \"Unable to process upload\"}")
+  fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
 }
 
 // Send a 500 - Server error error back to client
