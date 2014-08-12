@@ -24,7 +24,7 @@ func Send400Json(w http.ResponseWriter, msg string) {
   fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
 }
 
-func Send500Json(w http.ResponseWriter, err error) {
+func Send500Json(w http.ResponseWriter, msg string) {
   w.WriteHeader(http.StatusInternalServerError)
   w.Header().Set("Content-Type", "application/json")
   fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
