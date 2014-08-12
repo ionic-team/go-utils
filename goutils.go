@@ -20,7 +20,6 @@ func CheckFatalErr(err error, msg string) {
 // Send a 400 - BadRequest error back to client
 func Send400Json(w http.ResponseWriter, msg string) {
   w.WriteHeader(http.StatusBadRequest)
-  fmt.Fprintf(os.Stderr, "Bad request: %s\n", err)
   w.Header().Set("Content-Type", "application/json")
   fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
 }
