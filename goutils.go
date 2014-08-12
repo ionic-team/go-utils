@@ -24,6 +24,12 @@ func Send400Json(w http.ResponseWriter, msg string) {
   fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
 }
 
+func Send500Json(w http.ResponseWriter, err error) {
+  w.WriteHeader(http.StatusInternalServerError)
+  w.Header().Set("Content-Type", "application/json")
+  fmt.Fprintf(w, "{\"error\": \"%s\"}", msg)
+}
+
 // Send a 500 - Server error error back to client
 func Send500(w http.ResponseWriter, err error) {
   w.WriteHeader(http.StatusInternalServerError)
