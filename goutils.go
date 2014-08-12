@@ -8,8 +8,6 @@ import (
   "net/http"
   "encoding/json"
   "html/template"
-
-  "github.com/gorilla/mux"
 )
 
 func CheckFatalErr(err error, msg string) {
